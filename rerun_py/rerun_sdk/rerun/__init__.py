@@ -251,6 +251,7 @@ def init(
     default_enabled: bool = True,
     strict: bool = False,
     default_blueprint: BlueprintLike | None = None,
+    port: int = 9876,
 ) -> None:
     """
     Initialize the Rerun SDK with a user-chosen application id (name).
@@ -353,7 +354,7 @@ def init(
     if spawn:
         from rerun.sinks import spawn as _spawn
 
-        _spawn(default_blueprint=default_blueprint)
+        _spawn(default_blueprint=default_blueprint, port=port)
 
 
 # TODO(#3793): defaulting recording_id to authkey should be opt-in
